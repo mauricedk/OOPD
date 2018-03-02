@@ -10,6 +10,6 @@ public class Studieadviseur {
 		}
 		double eindcijfer = totaalCijfer / cijfers.length;
 		
-		return eindcijfer > 5.5;
+		return eindcijfer >= 5.5;
 	}
-} 
+}
