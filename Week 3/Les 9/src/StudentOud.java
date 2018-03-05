@@ -7,7 +7,7 @@ public class StudentOud {
 	
 	private static int nStudenten = 0;
 	
-	public Student(String naam) {
+	public void Student(String naam) {
 		this.naam = naam;
 		nStudenten++;
 		studentNr = nStudenten;
