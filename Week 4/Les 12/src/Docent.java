@@ -1,8 +1,8 @@
 public class Docent extends Persoon {
 	protected String code;
 	
-	public Docent(String naam, String voornaam, String code) {
-		super(naam, voornaam);
+	public Docent(String naam, String achternaam, String code) {
+		super(naam, achternaam);
 		this.code = code;
 	}
 
@@ -12,5 +12,10 @@ public class Docent extends Persoon {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+	
+	@Override
+	public String toString() {
+		return "Docent [code= " + code + ", naam= " + naam + ", achternaam= " + achternaam + "]";
 	}
 }

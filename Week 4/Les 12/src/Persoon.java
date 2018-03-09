@@ -1,13 +1,17 @@
 public class Persoon {
-	protected String naam, voornaam;
+	protected String naam, achternaam;
 
-	public Persoon(String naam, String voornaam) {
+	public Persoon(String naam, String achternaam) {
 		this.naam = naam;
-		this.voornaam = voornaam;
+		this.achternaam = achternaam;
 	}
 
 	public String getNaam() {
 		return naam;
+	}
+	
+	public Docent getSLBer() {
+		return null;
 	}
 
 	public void setNaam(String naam) {
@@ -15,10 +19,10 @@ public class Persoon {
 	}
 
 	public String getVoornaam() {
-		return voornaam;
+		return achternaam;
 	}
 
 	public void setVoornaam(String voornaam) {
-		this.voornaam = voornaam;
+		this.achternaam = voornaam;
 	}
 }
