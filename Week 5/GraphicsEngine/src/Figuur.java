@@ -2,12 +2,10 @@ import processing.core.PApplet;
 
 public abstract class Figuur extends DisplayObject{
 	
-	protected float x, y, vx, vy, ax, ay;
 	protected int kleur;
 	
-	public Figuur (float x, float y) {
-		this.x = x;
-		this.y = y;
+	public Figuur (float x, float y,float breedte, float hoogte) {
+		super(x,y,breedte,hoogte);		
 		kleur = 0xFFFFFFFF;
 	}
 	
@@ -40,7 +38,7 @@ public abstract class Figuur extends DisplayObject{
 		this.kleur = kleur;
 	}
 	
-	public abstract void teken(PApplet p);
+	public abstract void geefWeer(PApplet app, float startX, float startY);
 	
 	private void pasVersnellingToe() {
 		vx += ax;
