@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import processing.core.PApplet;
 
 
@@ -5,6 +6,8 @@ public abstract class DisplayObject {
 	
 	protected float x, y, vx, vy, ax, ay, breedte, hoogte;
 	protected boolean isZichtbaar;
+	
+	protected ArrayList<IReageerder> reageerders = new ArrayList<>();
 	
 	public DisplayObject (float x, float y, float breedte, float hoogte) {
 		this.x = x;
@@ -39,15 +42,17 @@ public abstract class DisplayObject {
 	}
 	
 	protected void behandelMousePressedGebeurtenis() {
-		
+		for (IReageerder r : reageerders) {
+			r.doeActie();
+		}
 	}
 	
 	public void voegReageerderToe(IReageerder reageerder) {
-		
+		reageerders.add(reageerder);
 	}
 	
 	public void verwijderReageerder(IReageerder reageerder) {
-		
+		reageerders.remove(reageerder);
 	}
 	
 	//------------Getters & Setters-----------------------
