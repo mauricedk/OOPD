@@ -20,10 +20,6 @@ public abstract class DisplayObject {
 		ay = 0;
 	}
 	
-	public void doeStap() {
-		x++;
-	}
-	
 	public abstract void geefWeer(PApplet app, float startX, float startY);
 	
 	public void geefMousePressedGebeurtenis(int mouseX, int mouseY) {
@@ -31,8 +27,7 @@ public abstract class DisplayObject {
 	}
 	
 	protected boolean isMuisBinnen(int muisX, int muisY) {
-		if (muisX >= x && muisX < x + breedte &&
-				muisY >= y && muisY < y + hoogte) {
+		if (muisX >= x && muisX < x + breedte && muisY >= y && muisY < y + hoogte) {
 			return true;
 		}
 		else {
@@ -47,6 +42,42 @@ public abstract class DisplayObject {
 		}
 	}
 	
+	public void doeStap() {
+		if (!staatStil()) {
+			pasVersnellingToe();
+			pasSnelheidToe();
+		}
+	}
+	
+	public void setSnelheid(float vx, float vy) {
+		this.vx = vx;
+		this.vy = vy;
+	}
+	
+	public void setVersnelling(float ax, float ay) {
+		this.ax = ax;
+		this.ay = ay;
+	}
+	
+	public void zetStil() {
+		vx = vy = ax = ay = 0;
+	}
+	
+	public boolean staatStil() {
+		return (vx == 0 && vy == 0 && ax == 0 && ay == 0);
+	}
+	
+	private void pasVersnellingToe() {
+		vx += ax;
+		vy += ay;
+	}
+	
+	private void pasSnelheidToe() {
+		x += vx;
+		y += vy;
+	}
+	
+		
 	public void voegReageerderToe(IReageerder reageerder) {
 		reageerders.add(reageerder);
 	}
